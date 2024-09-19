@@ -6,12 +6,12 @@
 /*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 20:23:01 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/18 16:20:29 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/19 18:06:57 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {
 	size_t	i;
 	char	*dup;
@@ -29,27 +29,37 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dup);
 }
 
-char	**ft_split(const char *s, char c)
+static size_t	count_words(const char *s, char c)
+{
+	size_t	i;
+	size_t	words;
+	size_t	inside;
+
+	i = 0;
+	words = 0;
+	inside = 0;
+	while (s[i])
+	{
+		if (s[i] == c && inside == 0)
+		{
+			words++;
+			inside = 1;
+		}
+		if (s[i] == c)
+			inside = 0;
+		i++;
+	}
+	return (words);
+}
+
+static void	split_process(char **out, const char *s, char c)
 {
 	size_t	i;
 	size_t	j;
 	size_t	start;
-	size_t	count;
-	char	**out;
 
 	i = 0;
 	j = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			count++;
-		i++;
-	}
-	out = (char **)malloc((count + 1) * sizeof(char *));
-	if (!out)
-		return (NULL);
-	i = 0;
 	start = 0;
 	while (s[i])
 	{
@@ -65,10 +75,17 @@ char	**ft_split(const char *s, char c)
 		i++;
 	}
 	if (start < i)
-	{
 		out[j] = ft_strndup(s + start, i - start);
-		j++;
-	}
 	out[j] = NULL;
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**out;
+
+	out = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!out)
+		return (NULL);
+	split_process(out, s, c);
 	return (out);
 }

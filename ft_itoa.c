@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:17:53 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/18 16:59:53 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/18 19:44:42 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_numlen(int c)
@@ -32,19 +33,19 @@ char	*ft_itoa(int c)
 	int		neg;
 	int		len;
 
+	neg = 0;
 	len = ft_numlen(c);
-	out = (char *)malloc(ft_numlen(c) * sizeof(char));
+	out = (char *)malloc(ft_numlen(c) * sizeof(char) + 1);
 	if (!out)
 		return (NULL);
 	if (c == -2147483648)
-	{
 		return (ft_strdup("-2147483648"));
-	}
 	else if (c < 0)
 	{
 		c = -c;
 		neg = 1;
 	}
+	out[len] = '\0';
 	while (len-- > 0)
 	{
 		out[len] = c % 10 + '0';

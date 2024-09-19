@@ -6,7 +6,7 @@
 /*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:14:39 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/18 18:29:48 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:45:30 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,4 +30,3 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	out[i] = '\0';
 	return (out);
 }
-

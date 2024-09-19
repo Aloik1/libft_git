@@ -6,14 +6,14 @@
 /*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:08:08 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/17 14:38:23 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:44:30 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 	{
 		c = c + 32;
 		return (c);

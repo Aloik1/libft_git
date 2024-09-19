@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:17:47 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/17 16:17:32 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/19 20:32:47 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *src, const char *to_find, size_t len)
@@ -22,7 +23,7 @@ char	*ft_strnstr(const char *src, const char *to_find, size_t len)
 	while (src[i] && i < len)
 	{
 		j = 0;
-		while (src[i + j] == to_find[j] && to_find[j])
+		while (src[i + j] == to_find[j] && to_find[j] && i + j < len)
 		{
 			j++;
 		}

@@ -6,14 +6,14 @@
 /*   By: ikondrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:10:10 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/17 14:37:59 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/19 17:44:04 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
+	if (c >= 'a' && c <= 'z')
 	{
 		c = c - 32;
 		return (c);
