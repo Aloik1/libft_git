@@ -6,7 +6,7 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:17:53 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/18 19:44:42 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/20 20:33:44 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ char	*ft_itoa(int c)
 
 	neg = 0;
 	len = ft_numlen(c);
+	if (c == -2147483648)
+		return (ft_strdup("-2147483648"));
 	out = (char *)malloc(ft_numlen(c) * sizeof(char) + 1);
 	if (!out)
 		return (NULL);
-	if (c == -2147483648)
-		return (ft_strdup("-2147483648"));
-	else if (c < 0)
+	if (c < 0)
 	{
 		c = -c;
 		neg = 1;

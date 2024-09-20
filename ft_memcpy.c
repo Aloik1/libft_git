@@ -6,7 +6,7 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:07:42 by ikondrat          #+#    #+#             */
-/*   Updated: 2024/09/18 19:47:02 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/09/20 21:08:05 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
+	if (!dest && !src)
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];
