@@ -7,25 +7,35 @@ ft_isalnum.c  ft_memchr.c   ft_putendl_fd.c  ft_striteri.c  ft_strncmp.c  ft_tou
 ft_isalpha.c  ft_memcmp.c   ft_putnbr_fd.c   ft_strjoin.c   ft_strnstr.c \
 ft_isascii.c  ft_memcpy.c   ft_putstr_fd.c   ft_strlcat.c   ft_strrchr.c \
 
+EXTRASRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+ft_lstlast_bonus.c \
+
 OBJS = $(SRCS:.c=.o)
+EXTRAOBJS = $(EXTRASRCS:.c=.o)
+
 NAME = libft.a
 RM = rm -f
 AR = ar rcs
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
+$(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(EXTRAOBJS)
+	$(AR) $(NAME) $(OBJS) $(EXTRAOBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(EXTRAOBJS)
 
 fclean: clean
 	$(RM) $(NAME) 
 
-re: fclean $(NAME)
+re: fclean all
+
+rebonus: fclean bonus
 
 .PHONY: all clean fclean re
