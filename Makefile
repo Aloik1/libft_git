@@ -14,6 +14,10 @@ ft_lstadd_back_bonus.c 		ft_lstlast_bonus.c 				ft_lstdelone_bonus.c \
 ft_lstclear_bonus.c 		ft_lstiter_bonus.c 				ft_lstmap_bonus.c \
 \
 get_next_line/get_next_line_bonus.c		get_next_line/get_next_line_utils_bonus.c \
+\
+$(PRINTF_DIR)/ft_printf.c			$(PRINTF_DIR)/printf_c.c		$(PRINTF_DIR)/printf_d_i.c \
+$(PRINTF_DIR)/printf_p.c			$(PRINTF_DIR)/printf_s.c		$(PRINTF_DIR)/printf_u.c \
+$(PRINTF_DIR)/printf_x_big.c		$(PRINTF_DIR)/printf_x.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -24,7 +28,6 @@ AR = ar rcs
 all: $(PRINTF) $(NAME)
 
 $(PRINTF):
-	echo "Building in directory: $(PRINTF_DIR)"
 	make -C $(PRINTF_DIR)
 
 $(NAME): $(OBJS)
